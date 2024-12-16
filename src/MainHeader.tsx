@@ -1,16 +1,27 @@
-import ColorSelector from './ColorSelector';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface HeaderProps {
   title: string | number;
 }
 
 export default function Header({ title }: HeaderProps) {
-  const nextPage = useNavigate();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleButtonClick = () => {
+    if (location.pathname === '/add-recipe') {
+      navigate('/');
+    } else {
+      navigate('/add-recipe');
+    }
+  };
+
   return (
     <header>
       <h1>{title}</h1>
-      <button id="page" onClick={() => nextPage('/add-recipe')}>Add Recipe</button>
+      <button id="page" onClick={handleButtonClick}>
+        {location.pathname === '/add-recipe' ? 'Back' : 'Add Recipe'}
+      </button>
     </header>
   );
 }

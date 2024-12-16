@@ -1,32 +1,47 @@
-// referenced for BrowserRouter Aliasing: https://v5.reactrouter.com/web/api/BrowserRouter
-import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomeLayout from './HomeLayout';
+import PostRecipe from './PostRecipe';
 import './style.css';
 import ColorContextProvider from './ColorContext';
-import PageTwo from './pageTwo';
 
+interface Recipe {
+  id: string;
+  title: string;
+  steps: string[];
+}
 
 export default function App() {
-  // Add states for tracking input and recipe steps
-  // const [input, setInput] = useState('');
-  // const [recipeSteps, setRecipeSteps] = useState({});
+  const [recipes, setRecipes] = useState<Recipe[]>([
+    {
+      id: '1',
+      title: 'Jollof Rice',
+      steps: ['Cook rice', 'Prepare sauce', 'Mix rice and sauce'],
+    },
+    {
+      id: '2',
+      title: 'Egusi',
+      steps: ['Prepare egusi', 'Cook meat', 'Mix egusi with meat'],
+    },
+  ]);
 
-  // useEffect(() => {
-  //   // fetch data
-  //   console.log('hello');
-  // });
+  const addRecipe = (title: string, steps: string[]) => {
+    const newRecipe = {
+      id: `recipe-${Math.floor(Math.random() * Date.now())}`,
+      title,
+      steps,
+    };
+    setRecipes([...recipes, newRecipe]);
+  };
 
-  return ( //pieces of html we want rendered
+  return (
     <ColorContextProvider>
       <Router>
         <Routes>
-             <Route path="/" element={<HomeLayout/>} />
-             <Route path="/add-recipe" element={<PageTwo/>} />
+          <Route path="/" element={<HomeLayout recipes={recipes} />} />
+          <Route path="/add-recipe" element={<PostRecipe addRecipe={addRecipe} />} />
         </Routes>
       </Router>
-
-
     </ColorContextProvider>
   );
 }

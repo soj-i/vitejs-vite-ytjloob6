@@ -9,9 +9,9 @@ interface Recipe {
 export default function Recipes() {
     const [recipes, setRecipes] = useState<Recipe[]>([]);
 
-    const addRecipe = (title: string, steps: string[]) => {
-        setRecipes([...recipes, { title, steps }]);
-    };
+    // const addRecipe = (title: string, steps: string[]) => {
+    //     setRecipes([...recipes, { title, steps }]);
+    // };
 
     return (
         <div>

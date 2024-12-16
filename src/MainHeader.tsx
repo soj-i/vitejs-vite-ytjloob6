@@ -1,14 +1,16 @@
 import ColorSelector from './ColorSelector';
+import { useNavigate } from 'react-router-dom';
 
 interface HeaderProps {
   title: string | number;
 }
 
 export default function Header({ title }: HeaderProps) {
+  const nextPage = useNavigate();
   return (
     <header>
       <h1>{title}</h1>
-      <button id = "create" onClick={() => alert('Add Recipe button clicked!')}>Add Recipe</button>
+      <button id="page" onClick={() => nextPage('/add-recipe')}>Add Recipe</button>
     </header>
   );
 }

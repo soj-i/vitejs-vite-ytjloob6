@@ -1,24 +1,34 @@
-import { useState } from 'react';
 import RecipeCard from './RecipeCard';
 
 interface Recipe {
-    id: string;
-    title: string;
-    steps: string[];
+  id: string;
+  title: string;
+  steps: string[];
 }
 
-export default function Recipes() { // we're building an array of recipes here. inside parentheses is start state
-    const [recipes, setRecipes] = useState<Recipe[]>([]); 
+interface RecipesProps {
+  recipes: Recipe[];
+  setRecipes: (recipes: Recipe[]) => void;
+  onSelectRecipe: (recipe: Recipe) => void;
+}
 
-    return (
-        <div>
-      <h2>Recipes</h2>
+export default function Recipes({ recipes, setRecipes, onSelectRecipe }: RecipesProps) {
+  const handleDeleteRecipe = (id: string) => {
+    setRecipes(recipes.filter(recipe => recipe.id !== id));
+  };
+
+  return (
+    <div>
       <div className="recipe-list">
-        {recipes.map((recipe: any) => (
-          <RecipeCard key={recipe.id} name={recipe.title} id={recipe.id} />
+        {recipes.map((recipe) => (
+          <RecipeCard
+            key={recipe.id}
+            recipe={recipe}
+            onSelectRecipe={onSelectRecipe}
+            onDeleteRecipe={handleDeleteRecipe}
+          />
         ))}
       </div>
     </div>
-    );
-   
+  );
 }

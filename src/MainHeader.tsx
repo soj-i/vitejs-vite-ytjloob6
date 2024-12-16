@@ -17,9 +17,9 @@ export default function Header({ title }: HeaderProps) {
   };
 
   return (
-    <header>
+    <header> 
       <h1>{title}</h1>
-      <button id="page" onClick={handleButtonClick}>
+      <button tabIndex = {1} id="page" aria-label ={`Add Recipe`} onClick={handleButtonClick}>
         {location.pathname === '/add-recipe' ? 'Back' : 'Add Recipe'}
       </button>
     </header>

@@ -12,7 +12,7 @@ interface ColorContextProviderProps {
 
 interface Color {
   color: string;
-  setColor: Dispatch<any>;
+  setColor: Dispatch<any>; // generic type, from lecture
 }
 
 const ColorContext = createContext<Color>({
@@ -20,7 +20,7 @@ const ColorContext = createContext<Color>({
   setColor: () => {},
 });
 
-export const useColorContext = () => useContext(ColorContext);
+export var useColorContext = () => useContext(ColorContext);
 
 export default function ColorContextProvider({ // higher order component
   children, // children passed as props

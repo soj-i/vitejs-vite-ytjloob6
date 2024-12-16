@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useColorContext } from './ColorContext';
 
 interface RecipeStepProps {
   stepText: string;

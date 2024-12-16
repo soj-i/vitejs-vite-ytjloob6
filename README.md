@@ -1,3 +1,9 @@
+SOURCES USED: 
+- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_gallery_scroll
+- https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/forms_and_events/
+- lecture recordings and in-class code-alongs
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

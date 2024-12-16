@@ -14,7 +14,7 @@ export default function RecipeStep({ stepText }: RecipeStepProps) {
 
   const [isComplete, setComplete] = useState(false);
 
-  const { color } = useColorContext();
+  const { color } = useColorContext();  // can console log color here
 
   return (
     <li

@@ -8,7 +8,7 @@ export default function Header({ title }: HeaderProps) {
   return (
     <header>
       <h1>{title}</h1>
-      <ColorSelector />
+      <button id = "create" onClick={() => alert('Add Recipe button clicked!')}>Add Recipe</button>
     </header>
   );
 }

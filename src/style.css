@@ -9,7 +9,23 @@ body {
   background-color: white;
 }
 
+header {
+  background-color: #f0f0f0;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#create {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  padding-inline: 3rem;
+}
+
 h1 {
   font-weight: 800;
-  font-size: 1.5rem;
+  font-size: 3rem;
 }

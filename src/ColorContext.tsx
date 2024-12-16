@@ -22,12 +22,12 @@ const ColorContext = createContext<Color>({
 
 export const useColorContext = () => useContext(ColorContext);
 
-export default function ColorContextProvider({
-  children,
+export default function ColorContextProvider({ // higher order component
+  children, // children passed as props
 }: ColorContextProviderProps) {
-  const [color, setColor] = useState('skyblue');
+  const [color, setColor] = useState('skyblue'); // state declaration
 
-  return (
+  return (  // property : state passed in. allows us to access anything wrapped here
     <ColorContext.Provider value={{ color, setColor }}>
       {children}
     </ColorContext.Provider>
